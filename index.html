@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Train Scheduler</title>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+    
+</head>
+<body>
+        <div class="jumbotron jumbotron-fluid">
+                <div class="container">
+                  <h1 class="display-3">Train Scheduler!</h1>
+                  <p class="lead">CHOO CHOO! CHEE CHEE!  Hi Lily!</p>
+                </div>
+              </div>
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-12">
+                <div class="panel panel-default">
+                    <!-- Default panel contents -->
+                    <div class="panel-heading">Current Train Schedule</div>
+                    <!-- Table -->
+                    <table class="table" id="trainTable">
+                        <thead>
+                            <tr>
+                                <th>Train Name</th>
+                                <th>Destination</th>
+                                <th>Frequency (mins)</th>
+                                <th>Next Arrival</th>
+                                <th>Minutes Away</th>
+                            </tr>
+                        </thead>
+                        <tbody></tbody>
+                    </table>
+                </div>
+
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-lg-12">
+                <div class="input-group input-group-lg">
+                    <span class="input-group-addon" id="sizing-addon1">Train Name</span>
+                    <input type="text" id="trainName-input" class="form-control" placeholder="California Express" aria-describedby="sizing-addon1">
+                </div>
+                <div class="input-group input-group-lg">
+                    <span class="input-group-addon" id="sizing-addon1">Destination</span>
+                    <input type="text" id="destination-input" class="form-control" placeholder="California" aria-describedby="sizing-addon1">
+                </div>
+                <div class="input-group input-group-lg">
+                    <span class="input-group-addon" id="sizing-addon1">First Train Time (HH:mm - Military Time)</span>
+                    <input type="text" id="ftt-input" class="form-control" placeholder="12:23" aria-describedby="sizing-addon1">
+                </div>
+                <div class="input-group input-group-lg">
+                    <span class="input-group-addon" id="sizing-addon1">Frequency(mins)</span>
+                    <input type="text" id="frequency-input" class="form-control" placeholder="45" aria-describedby="sizing-addon1">
+                </div>
+                <button type="button" class="btn btn-default btn-lg" id="submitTrain">
+                 Submit
+                </button>
+                      
+            </div>
+        </div>
+
+    </div>
+    <script src="https://www.gstatic.com/firebasejs/4.8.2/firebase.js"></script>
+    <script src="https://code.jquery.com/jquery-2.2.0.min.js"></script>
+    <script src="https://code.jquery.com/jquery-1.10.2.js"></script>
+       
+       
+       
+    <script type="text/javascript" src="assets/app.js"></script>
+    
+</body>
+</html>
