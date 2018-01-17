@@ -70,20 +70,39 @@ $('document').ready(function() {
     console.log(frequency);
   
     // Prettify the Train Frequency
-    var trainFrequency = moment(frequency).format(m);;
+    var trainFrequency =  moment.unix(tFTT).format('hh:mm A');
     console.log(trainFrequency);
+
+
+
+
+       // Current Time Right Now
+       var currentTime = moment();
+       console.log('CURRENT TIME: ' + moment(currentTime).format('hh:mm A'));
+
+       // Minutes Away
+       // Difference between the times or Minutes Away
+       var diffTime = moment().diff(moment.unix(tFTT), 'minutes');
+       console.log('DIFFERENCE IN TIME: ' + diffTime);
+
+       // Time apart (remainder)
+       var tRemainder = diffTime % frequency;
+       //console.log('tRemainder is ' + tRemainder);
+
+       // Minutes Until Next Train
+       var nextTrain = frequency - tRemainder;
+       //console.log('MINUTES TILL TRAIN: ' + nextTrain);
+
+       // Next Train
+       var nextArrival = moment().add(nextTrain, "minutes").format("hh:mm A");
+       //console.log("ARRIVAL TIME: " + moment(nextTrain).format("hh:mm A"));
+
   
-    // Calculate the next train arrival time from now
-    // To calculate the train arrival time worked
-    var nextArrival = moment(frequency).toNow();
-    console.log(nextArrival);
+
   
-    // Calculate the next arrival from the current time
-    var minsAway = moment(nextArrival).toNow();
-    console.log(minsAway);
   
     // Add each train's data into the table
     $("#trainTable > tbody").append("<tr><td>" + trainName + "</td><td>" + tDestination + "</td><td>" +
-    frequency +  "</td><td>" + nextArrival + "</td><td>" + minsAway + "</tdg</tr>");
+    frequency +  "</td><td>" + nextArrival + "</td><td>" + diffTime + "</td></tr>");
   });
 });
