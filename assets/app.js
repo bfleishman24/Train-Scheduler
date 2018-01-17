@@ -21,14 +21,14 @@ $('document').ready(function() {
         var trainName = $("#trainName-input").val().trim();
         var tDestination = $("#destination-input").val().trim();
         var tFTT = $("#ftt-input").val().trim();
-        var frequency = $("#frequency-input").val().trim();
+        var tFrequency = $("#frequency-input").val().trim();
 
         // Creates local "temporary" object for holding employee data
         var newTrain = {
             name: trainName,
             destination: tDestination,
             firstTime: tFTT,
-            rate: frequency,
+            frequency: tFrequency,
         };
 
         // Uploads Trains data to the database
@@ -58,31 +58,32 @@ $('document').ready(function() {
     console.log(childSnapshot.val());
   
     // Store everything into a variable.
-    var empName = childSnapshot.val().name;
-    var empRole = childSnapshot.val().role;
-    var empStart = childSnapshot.val().start;
-    var empRate = childSnapshot.val().rate;
+    var trainName = childSnapshot.val().name;
+    var tDestination = childSnapshot.val().destination;
+    var tFTT = childSnapshot.val().firstTime;
+    var frequency = childSnapshot.val().frequency;
   
     // Employee Info
-    console.log(empName);
-    console.log(empRole);
-    console.log(empStart);
-    console.log(empRate);
+    console.log(trainName);
+    console.log(tDestination);
+    console.log(tFTT);
+    console.log(frequency);
   
-    // Prettify the employee start
-    var empStartPretty = moment.unix(empStart).format("MM/DD/YY");
+    // Prettify the Train Frequency
+    var trainFrequency = moment(frequency).format(m);;
+    console.log(trainFrequency);
   
-    // Calculate the months worked using hardcore math
-    // To calculate the months worked
-    var empMonths = moment().diff(moment.unix(empStart, "X"), "months");
-    console.log(empMonths);
+    // Calculate the next train arrival time from now
+    // To calculate the train arrival time worked
+    var nextArrival = moment(frequency).toNow();
+    console.log(nextArrival);
   
-    // Calculate the total billed rate
-    var empBilled = empMonths * empRate;
-    console.log(empBilled);
+    // Calculate the next arrival from the current time
+    var minsAway = moment(nextArrival).toNow();
+    console.log(minsAway);
   
     // Add each train's data into the table
-    $("#trainTable > tbody").append("<tr><td>" + empName + "</td><td>" + empRole + "</td><td>" +
-    empStartPretty + "</td><td>" + empMonths + "</td><td>" + empRate + "</td><td>" + empBilled + "</td></tr>");
+    $("#trainTable > tbody").append("<tr><td>" + trainName + "</td><td>" + tDestination + "</td><td>" +
+    frequency +  "</td><td>" + nextArrival + "</td><td>" + minsAway + "</tdg</tr>");
   });
 });
