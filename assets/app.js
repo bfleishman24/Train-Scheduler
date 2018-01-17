@@ -82,7 +82,7 @@ $('document').ready(function() {
 
        // Minutes Away
        // Difference between the times or Minutes Away
-       var diffTime = moment().diff(moment.unix(tFTT), 'minutes');
+       var diffTime = moment().diff(moment.unix(frequency), 'minutes');
        console.log('DIFFERENCE IN TIME: ' + diffTime);
 
        // Time apart (remainder)
